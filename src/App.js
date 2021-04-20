@@ -12,7 +12,20 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
-  return <div>{anecdotes[selected]}</div>;
+  const handleClick = () => {
+    let randInt;
+    do {
+      randInt = Math.floor(Math.random() * 6);
+    } while (randInt === selected);
+    setSelected(randInt);
+  };
+
+  return (
+    <div>
+      <p>{anecdotes[selected]}</p>
+      <button onClick={handleClick}>next anecdote</button>
+    </div>
+  );
 };
 
 export default App;
