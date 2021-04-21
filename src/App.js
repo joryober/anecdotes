@@ -36,11 +36,16 @@ const App = () => {
     setVotes(copy);
   };
 
+  let maxIndex = votes.findIndex((val) => val === Math.max(...votes));
+
   return (
     <div>
+      <h1>Anecdote of the day </h1>
       <Anecdote anecdote={anecdotes[selected]} votes={votes[selected]} />
       <button onClick={handleVote}>vote</button>
       <button onClick={handleAnecdote}>next anecdote</button>
+      <h1>Anecdote with most votes</h1>
+      <Anecdote anecdote={anecdotes[maxIndex]} votes={votes[maxIndex]} />
     </div>
   );
 };
